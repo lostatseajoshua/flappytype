@@ -1,0 +1,642 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03063BAB191449A5006E1923 /* GameRulesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03063BAA191449A5006E1923 /* GameRulesViewController.m */; };
+		03063BAE191449E0006E1923 /* ScoresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03063BAD191449E0006E1923 /* ScoresTableViewController.m */; };
+		031C3E021910586C0065A986 /* sfx_die.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 031C3E011910586C0065A986 /* sfx_die.mp3 */; };
+		031C3E04191058730065A986 /* sfx_hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 031C3E03191058730065A986 /* sfx_hit.mp3 */; };
+		031C3E061910587E0065A986 /* sfx_point.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 031C3E051910587E0065A986 /* sfx_point.mp3 */; };
+		031C3E08191058860065A986 /* sfx_wing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 031C3E07191058860065A986 /* sfx_wing.mp3 */; };
+		03342E2219270C7F009C6A55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03342E2119270C7F009C6A55 /* AudioToolbox.framework */; };
+		03342E2419270C86009C6A55 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03342E2319270C86009C6A55 /* QuartzCore.framework */; };
+		03342E261927110F009C6A55 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03342E251927110E009C6A55 /* SpriteKit.framework */; };
+		03342E29192711B5009C6A55 /* WordsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 03342E28192711B5009C6A55 /* WordsScene.m */; };
+		033ADAA219215175005BF984 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033ADAA119215175005BF984 /* GameKit.framework */; };
+		038B28A41912BD290074D28F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038B28A31912BD280074D28F /* iAd.framework */; };
+		038B28A71912BD720074D28F /* EndGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 038B28A61912BD720074D28F /* EndGameViewController.m */; };
+		03B15DE11929BF6D00E7ADD8 /* SKScrollingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B15DE01929BF6D00E7ADD8 /* SKScrollingNode.m */; };
+		03CBFCB6190644B90071BFA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBFCB5190644B90071BFA6 /* Foundation.framework */; };
+		03CBFCB8190644B90071BFA6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBFCB7190644B90071BFA6 /* CoreGraphics.framework */; };
+		03CBFCBA190644B90071BFA6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBFCB9190644B90071BFA6 /* UIKit.framework */; };
+		03CBFCBC190644B90071BFA6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBFCBB190644B90071BFA6 /* CoreData.framework */; };
+		03CBFCC2190644B90071BFA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03CBFCC0190644B90071BFA6 /* InfoPlist.strings */; };
+		03CBFCC4190644B90071BFA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBFCC3190644B90071BFA6 /* main.m */; };
+		03CBFCC8190644B90071BFA6 /* FlappyTypeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBFCC7190644B90071BFA6 /* FlappyTypeAppDelegate.m */; };
+		03CBFCCB190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 03CBFCC9190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodeld */; };
+		03CBFCCD190644B90071BFA6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CBFCCC190644B90071BFA6 /* Images.xcassets */; };
+		03CBFCD4190644B90071BFA6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBFCD3190644B90071BFA6 /* XCTest.framework */; };
+		03CBFCD5190644B90071BFA6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBFCB5190644B90071BFA6 /* Foundation.framework */; };
+		03CBFCD6190644B90071BFA6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBFCB9190644B90071BFA6 /* UIKit.framework */; };
+		03CBFCD7190644B90071BFA6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03CBFCBB190644B90071BFA6 /* CoreData.framework */; };
+		03CBFCDF190644B90071BFA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03CBFCDD190644B90071BFA6 /* InfoPlist.strings */; };
+		03CBFCE1190644B90071BFA6 /* Flappy_Typing_TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBFCE0190644B90071BFA6 /* Flappy_Typing_TestTests.m */; };
+		03CBFCEB1906450C0071BFA6 /* iPhone_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03CBFCEA1906450C0071BFA6 /* iPhone_Main.storyboard */; };
+		03CBFCEF190645550071BFA6 /* FlappyTypeGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBFCEE190645550071BFA6 /* FlappyTypeGameViewController.m */; };
+		03CBFCF319064AD60071BFA6 /* TextComparison.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CBFCF219064AD60071BFA6 /* TextComparison.m */; };
+		03DA8E85190A00EE00C7CC55 /* 04B_19__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 03DA8E84190A00EE00C7CC55 /* 04B_19__.TTF */; };
+		03DA8E88190B47E100C7CC55 /* initialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DA8E87190B47E100C7CC55 /* initialViewController.m */; };
+		03EC815F19229AA900B7BB58 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EC815E19229AA900B7BB58 /* iPad.storyboard */; };
+		03FF6D66193D748D00CD9B9D /* iPhoneGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FF6D65193D748D00CD9B9D /* iPhoneGameScene.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03CBFCD8190644B90071BFA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03CBFCAA190644B80071BFA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03CBFCB1190644B80071BFA6;
+			remoteInfo = "Flappy Typing Test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03063BA9191449A5006E1923 /* GameRulesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameRulesViewController.h; path = "View Controllers/GameRulesViewController.h"; sourceTree = "<group>"; };
+		03063BAA191449A5006E1923 /* GameRulesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameRulesViewController.m; path = "View Controllers/GameRulesViewController.m"; sourceTree = "<group>"; };
+		03063BAC191449E0006E1923 /* ScoresTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoresTableViewController.h; path = "View Controllers/ScoresTableViewController.h"; sourceTree = "<group>"; };
+		03063BAD191449E0006E1923 /* ScoresTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoresTableViewController.m; path = "View Controllers/ScoresTableViewController.m"; sourceTree = "<group>"; };
+		031C3E011910586C0065A986 /* sfx_die.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_die.mp3; sourceTree = "<group>"; };
+		031C3E03191058730065A986 /* sfx_hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_hit.mp3; sourceTree = "<group>"; };
+		031C3E051910587E0065A986 /* sfx_point.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_point.mp3; sourceTree = "<group>"; };
+		031C3E07191058860065A986 /* sfx_wing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_wing.mp3; sourceTree = "<group>"; };
+		03342E2119270C7F009C6A55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		03342E2319270C86009C6A55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		03342E251927110E009C6A55 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		03342E27192711B5009C6A55 /* WordsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordsScene.h; path = Model/WordsScene.h; sourceTree = "<group>"; };
+		03342E28192711B5009C6A55 /* WordsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordsScene.m; path = Model/WordsScene.m; sourceTree = "<group>"; };
+		033ADAA119215175005BF984 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		038B28A31912BD280074D28F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		038B28A51912BD720074D28F /* EndGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameViewController.h; sourceTree = "<group>"; };
+		038B28A61912BD720074D28F /* EndGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameViewController.m; sourceTree = "<group>"; };
+		03B15DDF1929BF6D00E7ADD8 /* SKScrollingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKScrollingNode.h; path = SKScene/SKScrollingNode.h; sourceTree = "<group>"; };
+		03B15DE01929BF6D00E7ADD8 /* SKScrollingNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKScrollingNode.m; path = SKScene/SKScrollingNode.m; sourceTree = "<group>"; };
+		03CBFCB2190644B90071BFA6 /* Flappy Typing Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flappy Typing Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03CBFCB5190644B90071BFA6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		03CBFCB7190644B90071BFA6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		03CBFCB9190644B90071BFA6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		03CBFCBB190644B90071BFA6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		03CBFCBF190644B90071BFA6 /* Flappy Typing Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flappy Typing Test-Info.plist"; sourceTree = "<group>"; };
+		03CBFCC1190644B90071BFA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		03CBFCC3190644B90071BFA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		03CBFCC5190644B90071BFA6 /* Flappy Typing Test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flappy Typing Test-Prefix.pch"; sourceTree = "<group>"; };
+		03CBFCC6190644B90071BFA6 /* FlappyTypeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlappyTypeAppDelegate.h; sourceTree = "<group>"; };
+		03CBFCC7190644B90071BFA6 /* FlappyTypeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlappyTypeAppDelegate.m; sourceTree = "<group>"; };
+		03CBFCCA190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flappy_Typing_Test.xcdatamodel; sourceTree = "<group>"; };
+		03CBFCCC190644B90071BFA6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		03CBFCD2190644B90071BFA6 /* Flappy Typing TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flappy Typing TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03CBFCD3190644B90071BFA6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		03CBFCDC190644B90071BFA6 /* Flappy Typing TestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flappy Typing TestTests-Info.plist"; sourceTree = "<group>"; };
+		03CBFCDE190644B90071BFA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		03CBFCE0190644B90071BFA6 /* Flappy_Typing_TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Flappy_Typing_TestTests.m; sourceTree = "<group>"; };
+		03CBFCEA1906450C0071BFA6 /* iPhone_Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone_Main.storyboard; path = Storyboards/iPhone_Main.storyboard; sourceTree = "<group>"; };
+		03CBFCED190645550071BFA6 /* FlappyTypeGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlappyTypeGameViewController.h; path = "View Controllers/FlappyTypeGameViewController.h"; sourceTree = "<group>"; };
+		03CBFCEE190645550071BFA6 /* FlappyTypeGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlappyTypeGameViewController.m; path = "View Controllers/FlappyTypeGameViewController.m"; sourceTree = "<group>"; };
+		03CBFCF119064AD50071BFA6 /* TextComparison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextComparison.h; path = Model/TextComparison.h; sourceTree = "<group>"; };
+		03CBFCF219064AD60071BFA6 /* TextComparison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TextComparison.m; path = Model/TextComparison.m; sourceTree = "<group>"; };
+		03DA8E84190A00EE00C7CC55 /* 04B_19__.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = 04B_19__.TTF; sourceTree = "<group>"; };
+		03DA8E86190B47E100C7CC55 /* initialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = initialViewController.h; path = "View Controllers/initialViewController.h"; sourceTree = "<group>"; };
+		03DA8E87190B47E100C7CC55 /* initialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = initialViewController.m; path = "View Controllers/initialViewController.m"; sourceTree = "<group>"; };
+		03EC815E19229AA900B7BB58 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = Storyboards/iPad.storyboard; sourceTree = "<group>"; };
+		03FF6D64193D748D00CD9B9D /* iPhoneGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhoneGameScene.h; path = SKScene/iPhoneGameScene.h; sourceTree = "<group>"; };
+		03FF6D65193D748D00CD9B9D /* iPhoneGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhoneGameScene.m; path = SKScene/iPhoneGameScene.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		03CBFCAF190644B80071BFA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03342E261927110F009C6A55 /* SpriteKit.framework in Frameworks */,
+				03342E2419270C86009C6A55 /* QuartzCore.framework in Frameworks */,
+				03342E2219270C7F009C6A55 /* AudioToolbox.framework in Frameworks */,
+				038B28A41912BD290074D28F /* iAd.framework in Frameworks */,
+				03CBFCB8190644B90071BFA6 /* CoreGraphics.framework in Frameworks */,
+				03CBFCBC190644B90071BFA6 /* CoreData.framework in Frameworks */,
+				033ADAA219215175005BF984 /* GameKit.framework in Frameworks */,
+				03CBFCBA190644B90071BFA6 /* UIKit.framework in Frameworks */,
+				03CBFCB6190644B90071BFA6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03CBFCCF190644B90071BFA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03CBFCD4190644B90071BFA6 /* XCTest.framework in Frameworks */,
+				03CBFCD7190644B90071BFA6 /* CoreData.framework in Frameworks */,
+				03CBFCD6190644B90071BFA6 /* UIKit.framework in Frameworks */,
+				03CBFCD5190644B90071BFA6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0352CF451917383000FAFC20 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		03B15DDE1929BF2100E7ADD8 /* SKScene */ = {
+			isa = PBXGroup;
+			children = (
+				03FF6D64193D748D00CD9B9D /* iPhoneGameScene.h */,
+				03FF6D65193D748D00CD9B9D /* iPhoneGameScene.m */,
+				03342E27192711B5009C6A55 /* WordsScene.h */,
+				03342E28192711B5009C6A55 /* WordsScene.m */,
+				03B15DDF1929BF6D00E7ADD8 /* SKScrollingNode.h */,
+				03B15DE01929BF6D00E7ADD8 /* SKScrollingNode.m */,
+			);
+			name = SKScene;
+			sourceTree = "<group>";
+		};
+		03CBFCA9190644B80071BFA6 = {
+			isa = PBXGroup;
+			children = (
+				03B15DDE1929BF2100E7ADD8 /* SKScene */,
+				03CBFCEC190645290071BFA6 /* Storyboards */,
+				03CBFCF01906455A0071BFA6 /* View Controllers */,
+				03CBFCF419064B160071BFA6 /* Model */,
+				03CBFCBD190644B90071BFA6 /* Flappy Typing Test */,
+				03CBFCDA190644B90071BFA6 /* Flappy Typing TestTests */,
+				03CBFCB4190644B90071BFA6 /* Frameworks */,
+				03CBFCB3190644B90071BFA6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		03CBFCB3190644B90071BFA6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03CBFCB2190644B90071BFA6 /* Flappy Typing Test.app */,
+				03CBFCD2190644B90071BFA6 /* Flappy Typing TestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03CBFCB4190644B90071BFA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03342E251927110E009C6A55 /* SpriteKit.framework */,
+				03342E2319270C86009C6A55 /* QuartzCore.framework */,
+				03342E2119270C7F009C6A55 /* AudioToolbox.framework */,
+				033ADAA119215175005BF984 /* GameKit.framework */,
+				038B28A31912BD280074D28F /* iAd.framework */,
+				03CBFCB5190644B90071BFA6 /* Foundation.framework */,
+				03CBFCB7190644B90071BFA6 /* CoreGraphics.framework */,
+				03CBFCB9190644B90071BFA6 /* UIKit.framework */,
+				03CBFCBB190644B90071BFA6 /* CoreData.framework */,
+				03CBFCD3190644B90071BFA6 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		03CBFCBD190644B90071BFA6 /* Flappy Typing Test */ = {
+			isa = PBXGroup;
+			children = (
+				0352CF451917383000FAFC20 /* iPad */,
+				03CBFCC6190644B90071BFA6 /* FlappyTypeAppDelegate.h */,
+				03CBFCC7190644B90071BFA6 /* FlappyTypeAppDelegate.m */,
+				03CBFCCC190644B90071BFA6 /* Images.xcassets */,
+				03CBFCC9190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodeld */,
+				03CBFCBE190644B90071BFA6 /* Supporting Files */,
+			);
+			path = "Flappy Typing Test";
+			sourceTree = "<group>";
+		};
+		03CBFCBE190644B90071BFA6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				031C3E051910587E0065A986 /* sfx_point.mp3 */,
+				031C3E011910586C0065A986 /* sfx_die.mp3 */,
+				031C3E03191058730065A986 /* sfx_hit.mp3 */,
+				031C3E07191058860065A986 /* sfx_wing.mp3 */,
+				03DA8E84190A00EE00C7CC55 /* 04B_19__.TTF */,
+				03CBFCBF190644B90071BFA6 /* Flappy Typing Test-Info.plist */,
+				03CBFCC0190644B90071BFA6 /* InfoPlist.strings */,
+				03CBFCC3190644B90071BFA6 /* main.m */,
+				03CBFCC5190644B90071BFA6 /* Flappy Typing Test-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03CBFCDA190644B90071BFA6 /* Flappy Typing TestTests */ = {
+			isa = PBXGroup;
+			children = (
+				03CBFCE0190644B90071BFA6 /* Flappy_Typing_TestTests.m */,
+				03CBFCDB190644B90071BFA6 /* Supporting Files */,
+			);
+			path = "Flappy Typing TestTests";
+			sourceTree = "<group>";
+		};
+		03CBFCDB190644B90071BFA6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				03CBFCDC190644B90071BFA6 /* Flappy Typing TestTests-Info.plist */,
+				03CBFCDD190644B90071BFA6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03CBFCEC190645290071BFA6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				03EC815E19229AA900B7BB58 /* iPad.storyboard */,
+				03CBFCEA1906450C0071BFA6 /* iPhone_Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		03CBFCF01906455A0071BFA6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				03063BAC191449E0006E1923 /* ScoresTableViewController.h */,
+				03063BAD191449E0006E1923 /* ScoresTableViewController.m */,
+				03063BA9191449A5006E1923 /* GameRulesViewController.h */,
+				03063BAA191449A5006E1923 /* GameRulesViewController.m */,
+				03DA8E86190B47E100C7CC55 /* initialViewController.h */,
+				03DA8E87190B47E100C7CC55 /* initialViewController.m */,
+				03CBFCED190645550071BFA6 /* FlappyTypeGameViewController.h */,
+				03CBFCEE190645550071BFA6 /* FlappyTypeGameViewController.m */,
+				038B28A51912BD720074D28F /* EndGameViewController.h */,
+				038B28A61912BD720074D28F /* EndGameViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		03CBFCF419064B160071BFA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				03CBFCF119064AD50071BFA6 /* TextComparison.h */,
+				03CBFCF219064AD60071BFA6 /* TextComparison.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		03CBFCB1190644B80071BFA6 /* Flappy Typing Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03CBFCE4190644B90071BFA6 /* Build configuration list for PBXNativeTarget "Flappy Typing Test" */;
+			buildPhases = (
+				03CBFCAE190644B80071BFA6 /* Sources */,
+				03CBFCAF190644B80071BFA6 /* Frameworks */,
+				03CBFCB0190644B80071BFA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Flappy Typing Test";
+			productName = "Flappy Typing Test";
+			productReference = 03CBFCB2190644B90071BFA6 /* Flappy Typing Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		03CBFCD1190644B90071BFA6 /* Flappy Typing TestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03CBFCE7190644B90071BFA6 /* Build configuration list for PBXNativeTarget "Flappy Typing TestTests" */;
+			buildPhases = (
+				03CBFCCE190644B90071BFA6 /* Sources */,
+				03CBFCCF190644B90071BFA6 /* Frameworks */,
+				03CBFCD0190644B90071BFA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03CBFCD9190644B90071BFA6 /* PBXTargetDependency */,
+			);
+			name = "Flappy Typing TestTests";
+			productName = "Flappy Typing TestTests";
+			productReference = 03CBFCD2190644B90071BFA6 /* Flappy Typing TestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03CBFCAA190644B80071BFA6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FlappyType;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Joshua Alvarado";
+				TargetAttributes = {
+					03CBFCB1190644B80071BFA6 = {
+						DevelopmentTeam = 39WG57SP6D;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
+					};
+					03CBFCD1190644B90071BFA6 = {
+						TestTargetID = 03CBFCB1190644B80071BFA6;
+					};
+				};
+			};
+			buildConfigurationList = 03CBFCAD190644B80071BFA6 /* Build configuration list for PBXProject "Flappy Typing Test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 03CBFCA9190644B80071BFA6;
+			productRefGroup = 03CBFCB3190644B90071BFA6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				03CBFCB1190644B80071BFA6 /* Flappy Typing Test */,
+				03CBFCD1190644B90071BFA6 /* Flappy Typing TestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		03CBFCB0190644B80071BFA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				031C3E061910587E0065A986 /* sfx_point.mp3 in Resources */,
+				03EC815F19229AA900B7BB58 /* iPad.storyboard in Resources */,
+				031C3E021910586C0065A986 /* sfx_die.mp3 in Resources */,
+				03CBFCC2190644B90071BFA6 /* InfoPlist.strings in Resources */,
+				031C3E04191058730065A986 /* sfx_hit.mp3 in Resources */,
+				03DA8E85190A00EE00C7CC55 /* 04B_19__.TTF in Resources */,
+				03CBFCEB1906450C0071BFA6 /* iPhone_Main.storyboard in Resources */,
+				03CBFCCD190644B90071BFA6 /* Images.xcassets in Resources */,
+				031C3E08191058860065A986 /* sfx_wing.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03CBFCD0190644B90071BFA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03CBFCDF190644B90071BFA6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		03CBFCAE190644B80071BFA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03063BAB191449A5006E1923 /* GameRulesViewController.m in Sources */,
+				03063BAE191449E0006E1923 /* ScoresTableViewController.m in Sources */,
+				03B15DE11929BF6D00E7ADD8 /* SKScrollingNode.m in Sources */,
+				03CBFCEF190645550071BFA6 /* FlappyTypeGameViewController.m in Sources */,
+				03DA8E88190B47E100C7CC55 /* initialViewController.m in Sources */,
+				03342E29192711B5009C6A55 /* WordsScene.m in Sources */,
+				03CBFCCB190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodeld in Sources */,
+				03FF6D66193D748D00CD9B9D /* iPhoneGameScene.m in Sources */,
+				03CBFCC8190644B90071BFA6 /* FlappyTypeAppDelegate.m in Sources */,
+				03CBFCC4190644B90071BFA6 /* main.m in Sources */,
+				03CBFCF319064AD60071BFA6 /* TextComparison.m in Sources */,
+				038B28A71912BD720074D28F /* EndGameViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03CBFCCE190644B90071BFA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03CBFCE1190644B90071BFA6 /* Flappy_Typing_TestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03CBFCD9190644B90071BFA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03CBFCB1190644B80071BFA6 /* Flappy Typing Test */;
+			targetProxy = 03CBFCD8190644B90071BFA6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		03CBFCC0190644B90071BFA6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03CBFCC1190644B90071BFA6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		03CBFCDD190644B90071BFA6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03CBFCDE190644B90071BFA6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		03CBFCE2190644B90071BFA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		03CBFCE3190644B90071BFA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		03CBFCE5190644B90071BFA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flappy Typing Test/Flappy Typing Test-Prefix.pch";
+				INFOPLIST_FILE = "Flappy Typing Test/Flappy Typing Test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				New_Setting = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		03CBFCE6190644B90071BFA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flappy Typing Test/Flappy Typing Test-Prefix.pch";
+				INFOPLIST_FILE = "Flappy Typing Test/Flappy Typing Test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				New_Setting = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		03CBFCE8190644B90071BFA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Flappy Typing Test.app/Flappy Typing Test";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flappy Typing Test/Flappy Typing Test-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Flappy Typing TestTests/Flappy Typing TestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		03CBFCE9190644B90071BFA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Flappy Typing Test.app/Flappy Typing Test";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Flappy Typing Test/Flappy Typing Test-Prefix.pch";
+				INFOPLIST_FILE = "Flappy Typing TestTests/Flappy Typing TestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		03CBFCAD190644B80071BFA6 /* Build configuration list for PBXProject "Flappy Typing Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03CBFCE2190644B90071BFA6 /* Debug */,
+				03CBFCE3190644B90071BFA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03CBFCE4190644B90071BFA6 /* Build configuration list for PBXNativeTarget "Flappy Typing Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03CBFCE5190644B90071BFA6 /* Debug */,
+				03CBFCE6190644B90071BFA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03CBFCE7190644B90071BFA6 /* Build configuration list for PBXNativeTarget "Flappy Typing TestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03CBFCE8190644B90071BFA6 /* Debug */,
+				03CBFCE9190644B90071BFA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		03CBFCC9190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				03CBFCCA190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodel */,
+			);
+			currentVersion = 03CBFCCA190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodel */;
+			path = Flappy_Typing_Test.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 03CBFCAA190644B80071BFA6 /* Project object */;
+}
