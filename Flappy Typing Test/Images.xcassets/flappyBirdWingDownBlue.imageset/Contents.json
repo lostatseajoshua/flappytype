@@ -2,18 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "flappyBirdWingDownBlue.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "flappyBirdWingDownBlue2x.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "flappyBirdWingDown@3x.png"
+      "filename" : "flappyBirdWingDown.pdf"
     }
   ],
   "info" : {

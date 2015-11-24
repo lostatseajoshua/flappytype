@@ -43,6 +43,9 @@
 		03DA8E88190B47E100C7CC55 /* initialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DA8E87190B47E100C7CC55 /* initialViewController.m */; };
 		03EC815F19229AA900B7BB58 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03EC815E19229AA900B7BB58 /* iPad.storyboard */; };
 		03FF6D66193D748D00CD9B9D /* iPhoneGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FF6D65193D748D00CD9B9D /* iPhoneGameScene.m */; };
+		679CFC691C03E4380092460C /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679CFC681C03E4380092460C /* InitialViewController.swift */; };
+		679CFC6B1C03E60C0092460C /* ApplicationDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679CFC6A1C03E60C0092460C /* ApplicationDefinitions.swift */; };
+		67E38E381BF4467100B1F47A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E38E371BF4467100B1F47A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,9 @@
 		03EC815E19229AA900B7BB58 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = Storyboards/iPad.storyboard; sourceTree = "<group>"; };
 		03FF6D64193D748D00CD9B9D /* iPhoneGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhoneGameScene.h; path = SKScene/iPhoneGameScene.h; sourceTree = "<group>"; };
 		03FF6D65193D748D00CD9B9D /* iPhoneGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhoneGameScene.m; path = SKScene/iPhoneGameScene.m; sourceTree = "<group>"; };
+		679CFC681C03E4380092460C /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		679CFC6A1C03E60C0092460C /* ApplicationDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDefinitions.swift; sourceTree = "<group>"; };
+		67E38E371BF4467100B1F47A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,13 +143,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0352CF451917383000FAFC20 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
 		03B15DDE1929BF2100E7ADD8 /* SKScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,7 +199,6 @@
 		03CBFCBD190644B90071BFA6 /* Flappy Typing Test */ = {
 			isa = PBXGroup;
 			children = (
-				0352CF451917383000FAFC20 /* iPad */,
 				03CBFCC6190644B90071BFA6 /* FlappyTypeAppDelegate.h */,
 				03CBFCC7190644B90071BFA6 /* FlappyTypeAppDelegate.m */,
 				03CBFCCC190644B90071BFA6 /* Images.xcassets */,
@@ -213,6 +211,7 @@
 		03CBFCBE190644B90071BFA6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				679CFC6A1C03E60C0092460C /* ApplicationDefinitions.swift */,
 				031C3E051910587E0065A986 /* sfx_point.mp3 */,
 				031C3E011910586C0065A986 /* sfx_die.mp3 */,
 				031C3E03191058730065A986 /* sfx_hit.mp3 */,
@@ -247,6 +246,7 @@
 		03CBFCEC190645290071BFA6 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				67E38E371BF4467100B1F47A /* Main.storyboard */,
 				03EC815E19229AA900B7BB58 /* iPad.storyboard */,
 				03CBFCEA1906450C0071BFA6 /* iPhone_Main.storyboard */,
 			);
@@ -266,6 +266,7 @@
 				03CBFCEE190645550071BFA6 /* FlappyTypeGameViewController.m */,
 				038B28A51912BD720074D28F /* EndGameViewController.h */,
 				038B28A61912BD720074D28F /* EndGameViewController.m */,
+				679CFC681C03E4380092460C /* InitialViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -324,6 +325,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FlappyType;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Joshua Alvarado";
 				TargetAttributes = {
@@ -364,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				031C3E061910587E0065A986 /* sfx_point.mp3 in Resources */,
+				67E38E381BF4467100B1F47A /* Main.storyboard in Resources */,
 				03EC815F19229AA900B7BB58 /* iPad.storyboard in Resources */,
 				031C3E021910586C0065A986 /* sfx_die.mp3 in Resources */,
 				03CBFCC2190644B90071BFA6 /* InfoPlist.strings in Resources */,
@@ -391,6 +394,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03063BAB191449A5006E1923 /* GameRulesViewController.m in Sources */,
+				679CFC6B1C03E60C0092460C /* ApplicationDefinitions.swift in Sources */,
+				679CFC691C03E4380092460C /* InitialViewController.swift in Sources */,
 				03063BAE191449E0006E1923 /* ScoresTableViewController.m in Sources */,
 				03B15DE11929BF6D00E7ADD8 /* SKScrollingNode.m in Sources */,
 				03CBFCEF190645550071BFA6 /* FlappyTypeGameViewController.m in Sources */,
@@ -520,15 +525,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flappy Typing Test/Flappy Typing Test-Prefix.pch";
 				INFOPLIST_FILE = "Flappy Typing Test/Flappy Typing Test-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -539,12 +547,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flappy Typing Test/Flappy Typing Test-Prefix.pch";
 				INFOPLIST_FILE = "Flappy Typing Test/Flappy Typing Test-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
