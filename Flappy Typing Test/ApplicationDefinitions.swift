@@ -16,3 +16,7 @@ let initalViewSKSceneFlappyNodeName = "invFlappy"
 let bird1ImageName = "bird_1"
 let bird2ImageName = "bird_2"
 let bird3ImageName = "bird_3"
+
+let skScrollingChildNodeName = "childNode"
+
+let cloudbackgroundImageName = "flappyCloudBackground"
