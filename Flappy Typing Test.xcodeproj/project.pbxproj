@@ -43,22 +43,14 @@
 		031C3E03191058730065A986 /* sfx_hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_hit.mp3; sourceTree = "<group>"; };
 		031C3E051910587E0065A986 /* sfx_point.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_point.mp3; sourceTree = "<group>"; };
 		031C3E07191058860065A986 /* sfx_wing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_wing.mp3; sourceTree = "<group>"; };
-		03342E2119270C7F009C6A55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		03342E2319270C86009C6A55 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		03342E251927110E009C6A55 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		03342E27192711B5009C6A55 /* WordsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WordsScene.h; path = Model/WordsScene.h; sourceTree = "<group>"; };
 		03342E28192711B5009C6A55 /* WordsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WordsScene.m; path = Model/WordsScene.m; sourceTree = "<group>"; };
-		033ADAA119215175005BF984 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		038B28A31912BD280074D28F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		038B28A51912BD720074D28F /* EndGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndGameViewController.h; sourceTree = "<group>"; };
 		038B28A61912BD720074D28F /* EndGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndGameViewController.m; sourceTree = "<group>"; };
 		03B15DDF1929BF6D00E7ADD8 /* SKScrollingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SKScrollingNode.h; path = SKScene/SKScrollingNode.h; sourceTree = "<group>"; };
 		03B15DE01929BF6D00E7ADD8 /* SKScrollingNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SKScrollingNode.m; path = SKScene/SKScrollingNode.m; sourceTree = "<group>"; };
 		03CBFCB2190644B90071BFA6 /* Flappy Typing Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flappy Typing Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		03CBFCB5190644B90071BFA6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		03CBFCB7190644B90071BFA6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		03CBFCB9190644B90071BFA6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		03CBFCBB190644B90071BFA6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		03CBFCBF190644B90071BFA6 /* Flappy Typing Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Flappy Typing Test-Info.plist"; sourceTree = "<group>"; };
 		03CBFCC1190644B90071BFA6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		03CBFCC5190644B90071BFA6 /* Flappy Typing Test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flappy Typing Test-Prefix.pch"; sourceTree = "<group>"; };
@@ -137,15 +129,7 @@
 		03CBFCB4190644B90071BFA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				03342E251927110E009C6A55 /* SpriteKit.framework */,
-				03342E2319270C86009C6A55 /* QuartzCore.framework */,
-				03342E2119270C7F009C6A55 /* AudioToolbox.framework */,
-				033ADAA119215175005BF984 /* GameKit.framework */,
 				038B28A31912BD280074D28F /* iAd.framework */,
-				03CBFCB5190644B90071BFA6 /* Foundation.framework */,
-				03CBFCB7190644B90071BFA6 /* CoreGraphics.framework */,
-				03CBFCB9190644B90071BFA6 /* UIKit.framework */,
-				03CBFCBB190644B90071BFA6 /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
