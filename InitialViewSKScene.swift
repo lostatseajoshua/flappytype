@@ -13,6 +13,8 @@ class InitialViewSKScene: SKScene {
     
     var background: SKScrollingNode!
     
+    private var lastupdateTime: NSTimeInterval?
+    
    lazy var flappyNodeTextures : [SKTexture] =  {
     let bird1Texture = SKTexture(imageNamed: bird1ImageName)
     let bird2Texture = SKTexture(imageNamed: bird2ImageName)
@@ -33,12 +35,12 @@ class InitialViewSKScene: SKScene {
         self.backgroundColor = SKColor.whiteColor()
         self.scaleMode = SKSceneScaleMode.AspectFill
         
-//        background = SKScrollingNode.scrollingNode(withImageNamed: cloudbackgroundImageName, inContainerWidth: self.frame.size.width)
-//        
-//        background.scrollingSpeed = 0.8
-//        background.anchorPoint = CGPointZero
-//        background.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
-//        self.addChild(self.background)
+        background = SKScrollingNode.scrollingNode(withImageNamed: cloudbackgroundImageName, inContainerWidth: self.frame.size.width)
+        
+        background.scrollingSpeed = 0.8
+        background.anchorPoint = CGPointZero
+        background.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.addChild(self.background)
         
         let flappyNode = self.createFlappyNode()
         self.addChild(flappyNode)
@@ -75,7 +77,7 @@ class InitialViewSKScene: SKScene {
         })
     }
     
-//    override func update(currentTime: NSTimeInterval) {
-//        background.update(currentTime)
-//    }
+    override func update(currentTime: NSTimeInterval) {
+        background.update(currentTime)
+    }
 }

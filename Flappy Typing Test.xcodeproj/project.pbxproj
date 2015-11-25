@@ -31,6 +31,8 @@
 		679CFC701C03EDFA0092460C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 679CFC6F1C03EDFA0092460C /* Launch Screen.storyboard */; };
 		679CFCAE1C03EFB50092460C /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038B28A31912BD280074D28F /* iAd.framework */; };
 		679CFCB01C03EFEE0092460C /* InitialViewSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679CFCAF1C03EFEE0092460C /* InitialViewSKScene.swift */; };
+		67A84A581C054BBF00D14418 /* TextGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A84A571C054BBF00D14418 /* TextGameModel.swift */; };
+		67B352AD1C04C44C00353095 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B352AC1C04C44C00353095 /* GameViewController.swift */; };
 		67E38E381BF4467100B1F47A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E38E371BF4467100B1F47A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		679CFC6C1C03ECD40092460C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		679CFC6F1C03EDFA0092460C /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		679CFCAF1C03EFEE0092460C /* InitialViewSKScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewSKScene.swift; sourceTree = "<group>"; };
+		67A84A571C054BBF00D14418 /* TextGameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextGameModel.swift; sourceTree = "<group>"; };
+		67B352AC1C04C44C00353095 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		67E38E371BF4467100B1F47A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,10 +101,8 @@
 				03FF6D65193D748D00CD9B9D /* iPhoneGameScene.m */,
 				03342E27192711B5009C6A55 /* WordsScene.h */,
 				03342E28192711B5009C6A55 /* WordsScene.m */,
-				679CFCAF1C03EFEE0092460C /* InitialViewSKScene.swift */,
 				03B15DDF1929BF6D00E7ADD8 /* SKScrollingNode.h */,
 				03B15DE01929BF6D00E7ADD8 /* SKScrollingNode.m */,
-				679AFB2D1C041BE8000355BF /* SKScrollingNode.swift */,
 			);
 			name = SKScene;
 			sourceTree = "<group>";
@@ -108,6 +110,7 @@
 		03CBFCA9190644B80071BFA6 = {
 			isa = PBXGroup;
 			children = (
+				67B352A61C04BF6A00353095 /* Presentation */,
 				03B15DDE1929BF2100E7ADD8 /* SKScene */,
 				03CBFCEC190645290071BFA6 /* Storyboards */,
 				03CBFCF01906455A0071BFA6 /* View Controllers */,
@@ -187,7 +190,6 @@
 				03CBFCEE190645550071BFA6 /* FlappyTypeGameViewController.m */,
 				038B28A51912BD720074D28F /* EndGameViewController.h */,
 				038B28A61912BD720074D28F /* EndGameViewController.m */,
-				679CFC681C03E4380092460C /* InitialViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -197,8 +199,60 @@
 			children = (
 				03CBFCF119064AD50071BFA6 /* TextComparison.h */,
 				03CBFCF219064AD60071BFA6 /* TextComparison.m */,
+				67A84A571C054BBF00D14418 /* TextGameModel.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		67B352A61C04BF6A00353095 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				679AFB2D1C041BE8000355BF /* SKScrollingNode.swift */,
+				67B352AA1C04C41900353095 /* Game View */,
+				67B352A71C04BF7C00353095 /* Initial View */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
+		67B352A71C04BF7C00353095 /* Initial View */ = {
+			isa = PBXGroup;
+			children = (
+				67B352A91C04BF8E00353095 /* SKScene */,
+				67B352A81C04BF8700353095 /* Controller */,
+			);
+			name = "Initial View";
+			sourceTree = "<group>";
+		};
+		67B352A81C04BF8700353095 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				679CFC681C03E4380092460C /* InitialViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		67B352A91C04BF8E00353095 /* SKScene */ = {
+			isa = PBXGroup;
+			children = (
+				679CFCAF1C03EFEE0092460C /* InitialViewSKScene.swift */,
+			);
+			name = SKScene;
+			sourceTree = "<group>";
+		};
+		67B352AA1C04C41900353095 /* Game View */ = {
+			isa = PBXGroup;
+			children = (
+				67B352AB1C04C43000353095 /* Controller */,
+			);
+			name = "Game View";
+			sourceTree = "<group>";
+		};
+		67B352AB1C04C43000353095 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				67B352AC1C04C44C00353095 /* GameViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +349,8 @@
 				679AFB2E1C041BE8000355BF /* SKScrollingNode.swift in Sources */,
 				03342E29192711B5009C6A55 /* WordsScene.m in Sources */,
 				03CBFCCB190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodeld in Sources */,
+				67B352AD1C04C44C00353095 /* GameViewController.swift in Sources */,
+				67A84A581C054BBF00D14418 /* TextGameModel.swift in Sources */,
 				03FF6D66193D748D00CD9B9D /* iPhoneGameScene.m in Sources */,
 				03CBFCF319064AD60071BFA6 /* TextComparison.m in Sources */,
 				038B28A71912BD720074D28F /* EndGameViewController.m in Sources */,

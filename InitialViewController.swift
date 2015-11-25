@@ -27,18 +27,37 @@ class InitialViewController: UIViewController {
         // Do any additional setup after loading the view.
         updateUI()
 
-        let introScene = InitialViewSKScene(size: sceneView.frame.size)
-        sceneView.presentScene(introScene)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if sceneView.scene == nil {
+            let introScene = InitialViewSKScene(size: sceneView.frame.size)
+            introScene.scaleMode = .AspectFill
+            
+            //TODO: Remove after debug
+            sceneView.showsFPS = true
+            sceneView.showsNodeCount = true
+            sceneView.showsDrawCount = true
+            
+            sceneView.presentScene(introScene)
+        }
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        sceneView.presentScene(nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        sceneView.presentScene(nil)
     }
     
     //MARK: Utilites
     func updateUI() {
-        titleLabel.font = UIFont(name: flappyFontName, size: view.frame.height * 0.04)
+        titleLabel.font = UIFont(name: flappyFontName, size: view.frame.height * 0.08)
         playButton.titleLabel?.font = UIFont(name: flappyFontName, size: view.frame.height * 0.045)
         scoreButton.titleLabel?.font = UIFont(name: flappyFontName, size: view.frame.height * 0.045)
     }
