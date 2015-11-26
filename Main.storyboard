@@ -104,8 +104,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJy-QS-n1A" customClass="SKView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="7Rw-C3-tiq">
-                                <rect key="frame" x="20" y="289" width="560" height="20.5"/>
+                                <rect key="frame" x="20" y="300" width="560" height="20.5"/>
                                 <animations/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -115,28 +120,24 @@
                                     <outletCollection property="gestureRecognizers" destination="6BN-Jc-1ou" appends="YES" id="xtm-QP-534"/>
                                 </connections>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJy-QS-n1A" customClass="SKView">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7Rw-C3-tiq" firstAttribute="centerX" secondItem="Gk4-vS-u3F" secondAttribute="centerX" id="6aV-tU-JOD"/>
                             <constraint firstItem="7Rw-C3-tiq" firstAttribute="trailing" secondItem="Gk4-vS-u3F" secondAttribute="trailingMargin" id="Ev6-v6-LlM"/>
                             <constraint firstAttribute="trailing" secondItem="AJy-QS-n1A" secondAttribute="trailing" id="YyP-Xn-oXw"/>
-                            <constraint firstItem="7Rw-C3-tiq" firstAttribute="centerY" secondItem="Gk4-vS-u3F" secondAttribute="centerY" id="abC-3g-324"/>
+                            <constraint firstItem="7Rw-C3-tiq" firstAttribute="centerY" secondItem="AJy-QS-n1A" secondAttribute="centerY" identifier="WordLabelCenterY" id="chO-0R-O8t"/>
                             <constraint firstItem="vYE-uN-qjX" firstAttribute="top" secondItem="AJy-QS-n1A" secondAttribute="bottom" id="jUp-z7-ujk"/>
                             <constraint firstItem="AJy-QS-n1A" firstAttribute="top" secondItem="iBz-aP-xZL" secondAttribute="bottom" id="sup-Eq-21T"/>
                             <constraint firstItem="AJy-QS-n1A" firstAttribute="leading" secondItem="Gk4-vS-u3F" secondAttribute="leading" id="wiu-OV-CR3"/>
+                            <constraint firstItem="7Rw-C3-tiq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iBz-aP-xZL" secondAttribute="bottom" constant="1" id="wjK-Pd-AhB"/>
                             <constraint firstItem="7Rw-C3-tiq" firstAttribute="leading" secondItem="Gk4-vS-u3F" secondAttribute="leadingMargin" id="xpF-do-ClG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nch-uG-nKF"/>
                     <connections>
                         <outlet property="sceneView" destination="AJy-QS-n1A" id="vH2-bB-lMG"/>
+                        <outlet property="wordLabel" destination="7Rw-C3-tiq" id="sIg-El-EAE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZU-fO-Pgc" userLabel="First Responder" sceneMemberID="firstResponder"/>

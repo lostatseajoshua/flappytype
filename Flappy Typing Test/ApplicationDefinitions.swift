@@ -20,3 +20,5 @@ let bird3ImageName = "bird_3"
 let skScrollingChildNodeName = "childNode"
 
 let cloudbackgroundImageName = "background"
+
+let wordLabelCenterYConstraintId = "WordLabelCenterY"
