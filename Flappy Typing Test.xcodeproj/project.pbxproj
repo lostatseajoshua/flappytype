@@ -24,6 +24,8 @@
 		03DA8E85190A00EE00C7CC55 /* 04B_19__.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 03DA8E84190A00EE00C7CC55 /* 04B_19__.TTF */; };
 		03DA8E88190B47E100C7CC55 /* initialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DA8E87190B47E100C7CC55 /* initialViewController.m */; };
 		03FF6D66193D748D00CD9B9D /* iPhoneGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FF6D65193D748D00CD9B9D /* iPhoneGameScene.m */; };
+		6741FFC11C07AA3D004F3950 /* TextGameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6741FFC01C07AA3D004F3950 /* TextGameEngine.swift */; };
+		6741FFC51C07CDCC004F3950 /* GameStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6741FFC41C07CDCC004F3950 /* GameStatsViewController.swift */; };
 		679AFB2E1C041BE8000355BF /* SKScrollingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679AFB2D1C041BE8000355BF /* SKScrollingNode.swift */; };
 		679CFC691C03E4380092460C /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679CFC681C03E4380092460C /* InitialViewController.swift */; };
 		679CFC6B1C03E60C0092460C /* ApplicationDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679CFC6A1C03E60C0092460C /* ApplicationDefinitions.swift */; };
@@ -71,6 +73,8 @@
 		03EC815E19229AA900B7BB58 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = Storyboards/iPad.storyboard; sourceTree = "<group>"; };
 		03FF6D64193D748D00CD9B9D /* iPhoneGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhoneGameScene.h; path = SKScene/iPhoneGameScene.h; sourceTree = "<group>"; };
 		03FF6D65193D748D00CD9B9D /* iPhoneGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhoneGameScene.m; path = SKScene/iPhoneGameScene.m; sourceTree = "<group>"; };
+		6741FFC01C07AA3D004F3950 /* TextGameEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextGameEngine.swift; sourceTree = "<group>"; };
+		6741FFC41C07CDCC004F3950 /* GameStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatsViewController.swift; sourceTree = "<group>"; };
 		679AFB2D1C041BE8000355BF /* SKScrollingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKScrollingNode.swift; sourceTree = "<group>"; };
 		679CFC681C03E4380092460C /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		679CFC6A1C03E60C0092460C /* ApplicationDefinitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDefinitions.swift; sourceTree = "<group>"; };
@@ -200,14 +204,32 @@
 				03CBFCF119064AD50071BFA6 /* TextComparison.h */,
 				03CBFCF219064AD60071BFA6 /* TextComparison.m */,
 				67A84A571C054BBF00D14418 /* TextGameModel.swift */,
+				6741FFC01C07AA3D004F3950 /* TextGameEngine.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		6741FFC21C07CD9F004F3950 /* Game Stats View */ = {
+			isa = PBXGroup;
+			children = (
+				6741FFC31C07CDAD004F3950 /* Controller */,
+			);
+			name = "Game Stats View";
+			sourceTree = "<group>";
+		};
+		6741FFC31C07CDAD004F3950 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6741FFC41C07CDCC004F3950 /* GameStatsViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		67B352A61C04BF6A00353095 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				679AFB2D1C041BE8000355BF /* SKScrollingNode.swift */,
+				6741FFC21C07CD9F004F3950 /* Game Stats View */,
 				67B352AA1C04C41900353095 /* Game View */,
 				67B352A71C04BF7C00353095 /* Initial View */,
 			);
@@ -343,6 +365,7 @@
 				679CFC6E1C03ECFE0092460C /* AppDelegate.swift in Sources */,
 				03063BAE191449E0006E1923 /* ScoresTableViewController.m in Sources */,
 				03B15DE11929BF6D00E7ADD8 /* SKScrollingNode.m in Sources */,
+				6741FFC11C07AA3D004F3950 /* TextGameEngine.swift in Sources */,
 				03CBFCEF190645550071BFA6 /* FlappyTypeGameViewController.m in Sources */,
 				03DA8E88190B47E100C7CC55 /* initialViewController.m in Sources */,
 				679CFCB01C03EFEE0092460C /* InitialViewSKScene.swift in Sources */,
@@ -351,6 +374,7 @@
 				03CBFCCB190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodeld in Sources */,
 				67B352AD1C04C44C00353095 /* GameViewController.swift in Sources */,
 				67A84A581C054BBF00D14418 /* TextGameModel.swift in Sources */,
+				6741FFC51C07CDCC004F3950 /* GameStatsViewController.swift in Sources */,
 				03FF6D66193D748D00CD9B9D /* iPhoneGameScene.m in Sources */,
 				03CBFCF319064AD60071BFA6 /* TextComparison.m in Sources */,
 				038B28A71912BD720074D28F /* EndGameViewController.m in Sources */,

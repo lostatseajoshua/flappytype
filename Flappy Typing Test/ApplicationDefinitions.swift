@@ -12,6 +12,7 @@ import Foundation
 
 let flappyFontName = "04b19"
 let initalViewSKSceneFlappyNodeName = "invFlappy"
+let gameStatsSegueId = "GameStatsSegue"
 
 let bird1ImageName = "bird_1"
 let bird2ImageName = "bird_2"

@@ -35,11 +35,6 @@ class InitialViewController: UIViewController {
             let introScene = InitialViewSKScene(size: sceneView.frame.size)
             introScene.scaleMode = .AspectFill
             
-            //TODO: Remove after debug
-            sceneView.showsFPS = true
-            sceneView.showsNodeCount = true
-            sceneView.showsDrawCount = true
-            
             sceneView.presentScene(introScene)
         }
     }

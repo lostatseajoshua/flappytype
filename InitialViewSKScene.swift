@@ -48,7 +48,7 @@ class InitialViewSKScene: SKScene {
     
     func createFlappyNode() -> SKSpriteNode {
         let flappyNode = SKSpriteNode(imageNamed: "bird_2")
-        flappyNode.position = CGPointMake(self.frame.midX, self.frame.midY)
+        flappyNode.position = CGPointMake(0, self.frame.midY)
         flappyNode.runAction(SKAction.fadeInWithDuration(2))
         flappyNode.name = initalViewSKSceneFlappyNodeName
         

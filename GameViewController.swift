@@ -8,13 +8,20 @@
 
 import UIKit
 import SpriteKit
+import iAd
 
 class GameViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var sceneView: SKView!
     @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var keyboardTextField: UITextField!
+    @IBOutlet weak var countdownLabel: UILabel!
+    @IBOutlet var beginGameTapGesture: UITapGestureRecognizer!
+    @IBOutlet weak var pauseButton: UIButton!
     
-    let keyboardTextField = UITextField(frame: CGRectMake(0,0,0,0))
+    let textGameEngine = TextGameEngine()
+    var secondsLeft = 60
+    var gameTimer = NSTimer()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,23 +32,17 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        keyboardTextField.
         view.addSubview(keyboardTextField)
         
         if sceneView.scene == nil {
             let introScene = InitialViewSKScene(size: sceneView.frame.size)
-            introScene.scaleMode = .Fill
-            
-            //TODO: Remove after debug
-            sceneView.showsFPS = true
-            sceneView.showsNodeCount = true
-            sceneView.showsDrawCount = true
-            
+            introScene.scaleMode = .Fill            
             sceneView.presentScene(introScene)
         }
         
-        keyboardTextField.delegate = self
         // Do any additional setup after loading the view.
+        countdownLabel.alpha = 0
+        self.pauseButton.titleLabel?.text = "Home"
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,18 +50,117 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        keyboardTextField.becomeFirstResponder()
-    }
-    
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-//        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    @IBAction func beginGame(sender: UITapGestureRecognizer) {
+        pauseButton.setTitle("Pause", forState: .Normal)
+        startGame()
+    }
+    
+    @IBAction func gameStateAction(sender: UIButton) {
+        switch textGameEngine.gameStatus {
+        case .Began:
+            sender.setTitle("Home", forState: .Normal)
+            pauseGame()
+        case .CouldBegin, .Ended, .Paused:
+            navigationController?.popViewControllerAnimated(true)
+            keyboardTextField.resignFirstResponder()
+        }
+    }
+    
+    func startGame() {
+        
+        switch textGameEngine.gameStatus {
+        case .Paused:
+            resumeGame()
+        case .CouldBegin, .Ended:
+            keyboardTextField.delegate = self
+            textGameEngine.gameStatus = .Began
+            self.keyboardTextField.becomeFirstResponder()
+            UIView.animateWithDuration(1, delay: 0, options: .CurveEaseInOut, animations: {
+                self.wordLabel.attributedText = self.textGameEngine.attributeWordToType
+                self.countdownLabel.text = "01:00"
+                self.countdownLabel.alpha = 1.0
+                }) {
+                    _ in
+                    self.gameTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerFired", userInfo: nil, repeats: true)
+            }
+        case .Began:
+            break
+        }
+    }
+    
+    func pauseGame() {
+        gameTimer.invalidate()
+        textGameEngine.gameStatus = .Paused
+        keyboardTextField.resignFirstResponder()
+        wordLabel.text = "Tap here to resume"
+    }
+    
+    func resumeGame() {
+        textGameEngine.gameStatus = .Began
+        keyboardTextField.becomeFirstResponder()
+        self.gameTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "timerFired", userInfo: nil, repeats: true)
+        pauseButton.setTitle("Pause", forState: .Normal)
+        wordLabel.attributedText = textGameEngine.attributeWordToType
+    }
+    
+    func gameOver() {
+        secondsLeft = 60
+        textGameEngine.gameStatus = .Ended
+        pauseButton.setTitle("Home", forState: .Normal)
+        wordLabel.text = "Game Over"
+        keyboardTextField.resignFirstResponder()
+        UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+            self.countdownLabel.alpha = 0
+            }, completion: nil)
+        self.performSegueWithIdentifier(gameStatsSegueId, sender: nil)
+    }
+    
+    func timerFired() {
+        if secondsLeft > 0 {
+            secondsLeft--
+            if secondsLeft >= 10 {
+                self.countdownLabel.text = "00:\(self.secondsLeft)"
+            } else {
+                self.countdownLabel.text = "00:0\(self.secondsLeft)"
+            }
+        } else {
+            keyboardTextField.delegate = nil
+            gameTimer.invalidate()
+            gameOver()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == gameStatsSegueId {
+            if let navViewController = segue.destinationViewController as? UINavigationController, let gameStatViewController = navViewController.topViewController as? GameStatsViewController {
+                gameStatViewController.numberOfCorrectLetters = textGameEngine.numberOfCorrectLetters
+                gameStatViewController.numberOfCorrectWords = textGameEngine.numberOfCorrectWords
+                gameStatViewController.errors = textGameEngine.errors
+                gameStatViewController.correctWords = textGameEngine.correctWords
+                gameStatViewController.interstitialPresentationPolicy = .Automatic
+                self.textGameEngine.reset()
+            }
+        }
     }
     
     //MARK: UITextField Delegate
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if textGameEngine.gameStatus == .Began {
+            textGameEngine.compareStringWithWordToTypeAtCurrentLetterIndex(string)
+            wordLabel.attributedText = textGameEngine.attributeWordToType
+            return true
+        }
+        return false
+    }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        if textGameEngine.gameStatus == .Began {
+            return false
+        }
         return true
     }
 
@@ -77,6 +177,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    //MARK: Utilites
     private func animateWordLabel(up up: Bool, userInfo: [NSObject:AnyObject]) {
         var animationDuration: NSTimeInterval = 1
         var wordCenterYConstraint: NSLayoutConstraint?
