@@ -21,5 +21,16 @@ let bird3ImageName = "bird_3"
 let skScrollingChildNodeName = "childNode"
 
 let cloudbackgroundImageName = "background"
+let mainbackgroundImageName = "mainBackground"
+
 
 let wordLabelCenterYConstraintId = "WordLabelCenterY"
+
+let gameStatViewControllerID = "GameStatViewController"
+
+enum UserdefaultsKey: String {
+    case MostTypedWords = "a3JMNRpzG9TYr"
+    case MostTypedLetters = "Hupe8UymeqTX8"
+    case LifeTimeTypedWords = "GZH9aVkY7nrnv"
+    case LifeTimeTypedLetters = "yvtHs8oHhVpX6"
+}

@@ -15,27 +15,30 @@ class InitialViewSKScene: SKScene {
     
     private var lastupdateTime: NSTimeInterval?
     
-   lazy var flappyNodeTextures : [SKTexture] =  {
-    let bird1Texture = SKTexture(imageNamed: bird1ImageName)
-    let bird2Texture = SKTexture(imageNamed: bird2ImageName)
-    let bird3Texture = SKTexture(imageNamed: bird3ImageName)
-
+    var imageName: String!
+    lazy var flappyNodeTextures : [SKTexture] =  {
+        let bird1Texture = SKTexture(imageNamed: bird1ImageName)
+        let bird2Texture = SKTexture(imageNamed: bird2ImageName)
+        let bird3Texture = SKTexture(imageNamed: bird3ImageName)
+        
         return [bird2Texture,bird3Texture,bird2Texture,bird1Texture]
     }()
     
-    override init(size: CGSize) {
+    init(size: CGSize, imageName: String) {
         super.init(size: size)
+        print(imageName)
+        self.imageName = imageName
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func didMoveToView(view: SKView) {
         self.backgroundColor = SKColor.whiteColor()
         self.scaleMode = SKSceneScaleMode.AspectFill
         
-        background = SKScrollingNode.scrollingNode(withImageNamed: cloudbackgroundImageName, inContainerWidth: self.frame.size.width)
+        background = SKScrollingNode.scrollingNode(withImageNamed: self.imageName, inContainerWidth: self.frame.size.width)
         
         background.scrollingSpeed = 0.8
         background.anchorPoint = CGPointZero

@@ -32,10 +32,12 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.interstitialPresentationPolicy = .Manual
+        
         view.addSubview(keyboardTextField)
         
         if sceneView.scene == nil {
-            let introScene = InitialViewSKScene(size: sceneView.frame.size)
+            let introScene = InitialViewSKScene(size: sceneView.frame.size, imageName: cloudbackgroundImageName)
             introScene.scaleMode = .Fill            
             sceneView.presentScene(introScene)
         }
@@ -111,12 +113,13 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         secondsLeft = 60
         textGameEngine.gameStatus = .Ended
         pauseButton.setTitle("Home", forState: .Normal)
-        wordLabel.text = "Game Over"
+        wordLabel.text = "Game Over \n Tap to here to play again."
         keyboardTextField.resignFirstResponder()
         UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
             self.countdownLabel.alpha = 0
             }, completion: nil)
-        self.performSegueWithIdentifier(gameStatsSegueId, sender: nil)
+        self.textGameEngine.reset()
+        self.requestInterstitialAdPresentation()
     }
     
     func timerFired() {
@@ -125,32 +128,24 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             if secondsLeft >= 10 {
                 self.countdownLabel.text = "00:\(self.secondsLeft)"
             } else {
+                self.countdownLabel.textColor = UIColor.redColor()
                 self.countdownLabel.text = "00:0\(self.secondsLeft)"
             }
         } else {
+            self.countdownLabel.textColor = UIColor.blackColor()
             keyboardTextField.delegate = nil
             gameTimer.invalidate()
             gameOver()
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == gameStatsSegueId {
-            if let navViewController = segue.destinationViewController as? UINavigationController, let gameStatViewController = navViewController.topViewController as? GameStatsViewController {
-                gameStatViewController.numberOfCorrectLetters = textGameEngine.numberOfCorrectLetters
-                gameStatViewController.numberOfCorrectWords = textGameEngine.numberOfCorrectWords
-                gameStatViewController.errors = textGameEngine.errors
-                gameStatViewController.correctWords = textGameEngine.correctWords
-                gameStatViewController.interstitialPresentationPolicy = .Automatic
-                self.textGameEngine.reset()
-            }
-        }
-    }
-    
     //MARK: UITextField Delegate
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == " " || string == "\n" || string == "" {
+            return true
+        }
         if textGameEngine.gameStatus == .Began {
-            textGameEngine.compareStringWithWordToTypeAtCurrentLetterIndex(string)
+            textGameEngine.compareStringWithWordToTypeAtCurrentLetterIndex(string.lowercaseString)
             wordLabel.attributedText = textGameEngine.attributeWordToType
             return true
         }

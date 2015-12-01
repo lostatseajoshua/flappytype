@@ -10,19 +10,20 @@ import Foundation
 import UIKit
 import AudioToolbox
 import CoreFoundation
+import CoreData
 
 class TextGameEngine {
     //index of the letter in the word to type
-    var currentLetterIndex = 0
+    private var currentLetterIndex = 0
     //index of the word to retrieve in the text game model
     private var currentWordIndex = 0
     private var textGameModel = TextGameModel()
-    var errors = 0
-    var numberOfCorrectLetters = 0
-    var numberOfCorrectWords = 0
-    var correctWords = [String]()
+    private var errors = 0
+    private var numberOfCorrectLetters = 0
+    private var numberOfCorrectWords = 0
+    private var correctWords = [String]()
+    private let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var gameStatus = GameState.CouldBegin
-    
     var wordToType : String {
         if currentWordIndex < self.textGameModel.gameModelWords.count {
             let word = self.textGameModel.gameModelWords[currentWordIndex]
@@ -32,13 +33,16 @@ class TextGameEngine {
     }
     
     func reset() {
-        textGameModel.shuffleGameModelArray()
+        saveGameContext(correctWords, numOfCorrectLetters: numberOfCorrectLetters, numOfCorrectWords: numberOfCorrectWords)
+        textGameModel.shuffleGameModelArray() //always call this first
+        //reset all attributes
         currentLetterIndex = 0
         currentWordIndex = 0
         errors = 0
         numberOfCorrectWords = 0
         numberOfCorrectLetters = 0
         correctWords.removeAll()
+        //reinstate new word
         attributeWordToType = NSMutableAttributedString(string: self.wordToType)
     }
     
@@ -50,7 +54,7 @@ class TextGameEngine {
     func compareStringWithWordToTypeAtCurrentLetterIndex(string: String) {
         if currentLetterIndex < wordToType.characters.count - 1 {
             let index = wordToType.startIndex.advancedBy(currentLetterIndex)
-            if string == String(wordToType[index]) {
+            if string == String(wordToType[index]).lowercaseString {
                 colorString(attributeWordToType, atIndex: currentLetterIndex, color: UIColor.greenColor())
                 colorString(attributeWordToType, atIndex: currentLetterIndex + 1, color: UIColor.purpleColor())
                 currentLetterIndex++ //point to next letter in the word
@@ -87,7 +91,7 @@ class TextGameEngine {
         return attributedString
     }
     
-    
+    //MARK: Game Sounds
     func playGameSound(soundEffect: SoundEffects) {
         let soundEffectTitle: String
         switch soundEffect {
@@ -116,24 +120,60 @@ class TextGameEngine {
         case Die
         case Hit
     }
-//    
-//    -(void)playPointSound
-//    {
-//    NSString *effectTitle = @"sfx_point";
-//    
-//    SystemSoundID soundID;
-//    
-//    NSString *soundPath = [[NSBundle mainBundle] pathForResource:effectTitle ofType:@"mp3"];
-//    NSURL *soundUrl = [NSURL fileURLWithPath:soundPath];
-//    
-//    AudioServicesCreateSystemSoundID ((__bridge CFURLRef)soundUrl, &soundID);
-//    AudioServicesPlaySystemSound(soundID);
-//    }
 
     enum GameState {
         case CouldBegin
         case Began
         case Paused
         case Ended
+    }
+    
+    //MARK: Core Data Manager
+    func saveGameContext(correctWords: [String], numOfCorrectLetters: Int, numOfCorrectWords: Int) {
+        let qualityOfService = DISPATCH_QUEUE_PRIORITY_HIGH
+        let queue = dispatch_get_global_queue(qualityOfService, 0)
+        //save game stats
+        dispatch_async(queue) {
+            let newGame = NSEntityDescription.insertNewObjectForEntityForName("Game", inManagedObjectContext: self.appDelegate.managedObjectContext) as! Game
+
+            newGame.id = NSDate()
+            newGame.words = NSKeyedArchiver.archivedDataWithRootObject(self.correctWords)
+            
+            let newStatistic = NSEntityDescription.insertNewObjectForEntityForName("Statistic", inManagedObjectContext: self.appDelegate.managedObjectContext) as! Statistic
+            newStatistic.game = newGame
+            newStatistic.wordsTyped = numOfCorrectWords
+            newStatistic.lettersTyped = numOfCorrectLetters
+            
+            newGame.score = newStatistic
+            //save core data
+            do {
+                try self.appDelegate.managedObjectContext.save()
+            } catch {
+                print("fata error saving core data \(error)")
+            }
+        }
+    
+        //save overall stats
+        dispatch_async(queue) {
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+            let overallCorrectWords = userDefaults.integerForKey(UserdefaultsKey.LifeTimeTypedWords.rawValue) + numOfCorrectWords
+            userDefaults.setInteger(overallCorrectWords, forKey: UserdefaultsKey.LifeTimeTypedWords.rawValue)
+
+            let overallCorrectLetter = userDefaults.integerForKey(UserdefaultsKey.LifeTimeTypedLetters.rawValue) + numOfCorrectLetters
+            userDefaults.setInteger(overallCorrectLetter, forKey: UserdefaultsKey.LifeTimeTypedLetters.rawValue)
+            
+            let highestWordCount = userDefaults.integerForKey(UserdefaultsKey.MostTypedWords.rawValue)
+            let highestLetterCount = userDefaults.integerForKey(UserdefaultsKey.MostTypedWords.rawValue)
+            
+            if highestWordCount < numOfCorrectWords {
+                userDefaults.setInteger(numOfCorrectWords, forKey: UserdefaultsKey.MostTypedWords.rawValue)
+            }
+            
+            if highestLetterCount < numOfCorrectLetters {
+                userDefaults.setInteger(numOfCorrectLetters, forKey: UserdefaultsKey.MostTypedLetters.rawValue)
+            }
+            
+            userDefaults.synchronize()
+        }
     }
 }

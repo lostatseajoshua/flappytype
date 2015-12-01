@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Automatic">
+    <entity name="Game" representedClassName=".Game" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="words" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="score" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Statistic" inverseName="game" inverseEntity="Statistic" syncable="YES"/>
+    </entity>
     <entity name="Scores" syncable="YES">
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="Statistic" representedClassName=".Statistic" syncable="YES">
+        <attribute name="lettersTyped" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="wordsTyped" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="score" inverseEntity="Game" syncable="YES"/>
+    </entity>
     <elements>
+        <element name="Game" positionX="-254" positionY="-93" width="128" height="88"/>
         <element name="Scores" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Statistic" positionX="-261" positionY="69" width="128" height="90"/>
     </elements>
 </model>
