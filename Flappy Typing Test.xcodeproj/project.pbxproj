@@ -28,6 +28,7 @@
 		670C71631C08D6B500F68E62 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C715F1C08D6B500F68E62 /* Statistic.swift */; };
 		670C71641C08D6B500F68E62 /* Game+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C71601C08D6B500F68E62 /* Game+CoreDataProperties.swift */; };
 		670C71651C08D6B500F68E62 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670C71611C08D6B500F68E62 /* Game.swift */; };
+		672EFD6D1C10A1D700E7E463 /* GameStatsDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672EFD6C1C10A1D700E7E463 /* GameStatsDetailTableViewController.swift */; };
 		6741FFC11C07AA3D004F3950 /* TextGameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6741FFC01C07AA3D004F3950 /* TextGameEngine.swift */; };
 		6741FFC51C07CDCC004F3950 /* GameStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6741FFC41C07CDCC004F3950 /* GameStatsViewController.swift */; };
 		679AFB2E1C041BE8000355BF /* SKScrollingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679AFB2D1C041BE8000355BF /* SKScrollingNode.swift */; };
@@ -81,6 +82,7 @@
 		670C715F1C08D6B500F68E62 /* Statistic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
 		670C71601C08D6B500F68E62 /* Game+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Game+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		670C71611C08D6B500F68E62 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		672EFD6C1C10A1D700E7E463 /* GameStatsDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatsDetailTableViewController.swift; sourceTree = "<group>"; };
 		6741FFC01C07AA3D004F3950 /* TextGameEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextGameEngine.swift; sourceTree = "<group>"; };
 		6741FFC41C07CDCC004F3950 /* GameStatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatsViewController.swift; sourceTree = "<group>"; };
 		679AFB2D1C041BE8000355BF /* SKScrollingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKScrollingNode.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				6741FFC41C07CDCC004F3950 /* GameStatsViewController.swift */,
+				672EFD6C1C10A1D700E7E463 /* GameStatsDetailTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				03DA8E88190B47E100C7CC55 /* initialViewController.m in Sources */,
 				679CFCB01C03EFEE0092460C /* InitialViewSKScene.swift in Sources */,
 				679AFB2E1C041BE8000355BF /* SKScrollingNode.swift in Sources */,
+				672EFD6D1C10A1D700E7E463 /* GameStatsDetailTableViewController.swift in Sources */,
 				03342E29192711B5009C6A55 /* WordsScene.m in Sources */,
 				03CBFCCB190644B90071BFA6 /* Flappy_Typing_Test.xcdatamodeld in Sources */,
 				67B352AD1C04C44C00353095 /* GameViewController.swift in Sources */,

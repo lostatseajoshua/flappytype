@@ -137,7 +137,9 @@ class TextGameEngine {
             let newGame = NSEntityDescription.insertNewObjectForEntityForName("Game", inManagedObjectContext: self.appDelegate.managedObjectContext) as! Game
 
             newGame.id = NSDate()
-            newGame.words = NSKeyedArchiver.archivedDataWithRootObject(self.correctWords)
+            
+            let array = NSArray(array: correctWords)
+            newGame.words = NSKeyedArchiver.archivedDataWithRootObject(array)
             
             let newStatistic = NSEntityDescription.insertNewObjectForEntityForName("Statistic", inManagedObjectContext: self.appDelegate.managedObjectContext) as! Statistic
             newStatistic.game = newGame
@@ -163,12 +165,11 @@ class TextGameEngine {
             userDefaults.setInteger(overallCorrectLetter, forKey: UserdefaultsKey.LifeTimeTypedLetters.rawValue)
             
             let highestWordCount = userDefaults.integerForKey(UserdefaultsKey.MostTypedWords.rawValue)
-            let highestLetterCount = userDefaults.integerForKey(UserdefaultsKey.MostTypedWords.rawValue)
-            
             if highestWordCount < numOfCorrectWords {
                 userDefaults.setInteger(numOfCorrectWords, forKey: UserdefaultsKey.MostTypedWords.rawValue)
             }
             
+            let highestLetterCount = userDefaults.integerForKey(UserdefaultsKey.MostTypedWords.rawValue)
             if highestLetterCount < numOfCorrectLetters {
                 userDefaults.setInteger(numOfCorrectLetters, forKey: UserdefaultsKey.MostTypedLetters.rawValue)
             }

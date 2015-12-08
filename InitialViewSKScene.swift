@@ -16,6 +16,7 @@ class InitialViewSKScene: SKScene {
     private var lastupdateTime: NSTimeInterval?
     
     var imageName: String!
+    var showBird: Bool = false
     lazy var flappyNodeTextures : [SKTexture] =  {
         let bird1Texture = SKTexture(imageNamed: bird1ImageName)
         let bird2Texture = SKTexture(imageNamed: bird2ImageName)
@@ -24,10 +25,10 @@ class InitialViewSKScene: SKScene {
         return [bird2Texture,bird3Texture,bird2Texture,bird1Texture]
     }()
     
-    init(size: CGSize, imageName: String) {
+    init(size: CGSize, imageName: String, showBird: Bool) {
         super.init(size: size)
-        print(imageName)
         self.imageName = imageName
+        self.showBird = showBird
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,8 +46,10 @@ class InitialViewSKScene: SKScene {
         background.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
         self.addChild(self.background)
         
-        let flappyNode = self.createFlappyNode()
-        self.addChild(flappyNode)
+        if showBird {
+            let flappyNode = self.createFlappyNode()
+            self.addChild(flappyNode)
+        }
     }
     
     func createFlappyNode() -> SKSpriteNode {

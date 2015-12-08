@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import GameKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -112,5 +113,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    
+    func authenticateLocalPlayer() {
+        let localPlayer = GKLocalPlayer.localPlayer()
+        localPlayer.authenticateHandler = {
+            (viewController, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            if let _ = viewController {
+                
+            } else {
+                GKLocalPlayer.localPlayer().loadDefaultLeaderboardIdentifierWithCompletionHandler {
+                    (leaderboardId, error) in
+                    if error != nil {
+                        print(error)
+                    }
+                    
+                }
+            }
+        }
+    }
 }

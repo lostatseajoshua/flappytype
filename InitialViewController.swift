@@ -32,7 +32,7 @@ class InitialViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if sceneView.scene == nil {
-            let introScene = InitialViewSKScene(size: sceneView.frame.size, imageName: cloudbackgroundImageName)
+            let introScene = InitialViewSKScene(size: sceneView.frame.size, imageName: cloudbackgroundImageName, showBird: true)
             introScene.scaleMode = .AspectFit
             
             sceneView.presentScene(introScene)

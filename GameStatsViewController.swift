@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 import CoreData
 
-class GameStatsViewController: UIViewController, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIAlertViewDelegate {
+class GameStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UIAlertViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     lazy var gamesFetchResultsController : NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: "Game")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
         return controller
@@ -27,6 +27,8 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, NSFetche
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
+        
         do {
             try gamesFetchResultsController.performFetch()
         } catch {
@@ -99,7 +101,19 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, NSFetche
         }
     }
     
-    //MARK: UITableViewDelegate
+    //MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gameDetail", let indexPath = sender as? NSIndexPath {
+            if let game = gamesFetchResultsController.fetchedObjects?[indexPath.row] as? Game {
+                if let gameStatController = segue.destinationViewController as? GameStatsDetailTableViewController {
+                    gameStatController.game = game
+                }
+            }
+        }
+    }
+    
+    //MARK: UITableViewDataSource
+    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Overall Stats"
@@ -114,7 +128,7 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, NSFetche
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("overallStatsCell", forIndexPath: indexPath) as UITableViewCell
             if indexPath.row == 0 {
-                let score = NSUserDefaults.standardUserDefaults().integerForKey(UserdefaultsKey.MostTypedLetters.rawValue)
+                let score = NSUserDefaults.standardUserDefaults().integerForKey(UserdefaultsKey.MostTypedWords.rawValue)
                 cell.textLabel?.text = "Most Words Typed:"
                 cell.detailTextLabel?.text = "\(score)"
             }
@@ -141,7 +155,7 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, NSFetche
                 if let date = game.id {
                     let dateFormatter = NSDateFormatter()
                     dateFormatter.timeStyle = .ShortStyle
-                    dateFormatter.dateStyle = .ShortStyle
+                    dateFormatter.dateStyle = .MediumStyle
                     cell.textLabel?.text = dateFormatter.stringFromDate(date)
                 } else {
                     cell.textLabel?.text = ""
@@ -166,6 +180,27 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, NSFetche
             }
         }
         return 0
+    }
+    
+    //MARK: UITableViewDelegate
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        if indexPath.section == 0 {
+            return false
+        }
+        return true
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 1 {
+            performSegueWithIdentifier("gameDetail", sender: indexPath)
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            
+        }
     }
     
     // MARK: NSFetchedResultsControllerDelegate

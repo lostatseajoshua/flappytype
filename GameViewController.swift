@@ -18,9 +18,10 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet var beginGameTapGesture: UITapGestureRecognizer!
     @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var scoreButton: UIButton!
     
     let textGameEngine = TextGameEngine()
-    var secondsLeft = 60
+    var secondsLeft = 15
     var gameTimer = NSTimer()
     
     override func awakeFromNib() {
@@ -37,10 +38,12 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(keyboardTextField)
         
         if sceneView.scene == nil {
-            let introScene = InitialViewSKScene(size: sceneView.frame.size, imageName: cloudbackgroundImageName)
+            let introScene = InitialViewSKScene(size: sceneView.frame.size, imageName: cloudbackgroundImageName, showBird: false)
             introScene.scaleMode = .Fill            
             sceneView.presentScene(introScene)
         }
+        
+        scoreButton.hidden = true
         
         // Do any additional setup after loading the view.
         countdownLabel.alpha = 0
@@ -79,6 +82,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             resumeGame()
         case .CouldBegin, .Ended:
             keyboardTextField.delegate = self
+            scoreButton.hidden = true
             textGameEngine.gameStatus = .Began
             self.keyboardTextField.becomeFirstResponder()
             UIView.animateWithDuration(1, delay: 0, options: .CurveEaseInOut, animations: {
@@ -119,6 +123,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             self.countdownLabel.alpha = 0
             }, completion: nil)
         self.textGameEngine.reset()
+        scoreButton.hidden = false
         self.requestInterstitialAdPresentation()
     }
     
