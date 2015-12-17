@@ -19,9 +19,9 @@ class TextGameEngine {
     private var currentWordIndex = 0
     private var textGameModel = TextGameModel()
     private var errors = 0
-    private var numberOfCorrectLetters = 0
-    private var numberOfCorrectWords = 0
-    private var correctWords = [String]()
+    var numberOfCorrectLetters = 0
+    var numberOfCorrectWords = 0
+    var correctWords = [String]()
     private let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var gameStatus = GameState.CouldBegin
     var wordToType : String {
@@ -93,25 +93,28 @@ class TextGameEngine {
     
     //MARK: Game Sounds
     func playGameSound(soundEffect: SoundEffects) {
-        let soundEffectTitle: String
-        switch soundEffect {
-        case .Die:
-            soundEffectTitle = "sfx_die"
-        case .Hit:
-            soundEffectTitle = "sfx_hit"
-        case .Wing:
-            soundEffectTitle = "sfx_wing"
-        case .Point:
-            soundEffectTitle = "sfx_point"
+        if NSUserDefaults.standardUserDefaults().boolForKey(UserdefaultsKey.SoundSettings.rawValue) {
+            let soundEffectTitle: String
+            switch soundEffect {
+            case .Die:
+                soundEffectTitle = "sfx_die"
+            case .Hit:
+                soundEffectTitle = "sfx_hit"
+            case .Wing:
+                soundEffectTitle = "sfx_wing"
+            case .Point:
+                soundEffectTitle = "sfx_point"
+            }
+            guard let soundPath = NSBundle.mainBundle().pathForResource(soundEffectTitle, ofType: "mp3") else {
+                return
+            }
+            var soundId : SystemSoundID = SystemSoundID()
+            let soundURL = NSURL(fileURLWithPath: soundPath)
+            
+            AudioServicesCreateSystemSoundID((soundURL as CFURLRef), &soundId)
+            AudioServicesPlaySystemSound(soundId)
         }
-        guard let soundPath = NSBundle.mainBundle().pathForResource(soundEffectTitle, ofType: "mp3") else {
-            return
-        }
-        var soundId : SystemSoundID = SystemSoundID()
-        let soundURL = NSURL(fileURLWithPath: soundPath)
-        
-        AudioServicesCreateSystemSoundID((soundURL as CFURLRef), &soundId)
-        AudioServicesPlaySystemSound(soundId)
+
     }
     
     enum SoundEffects {

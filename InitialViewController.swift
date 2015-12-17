@@ -15,6 +15,7 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var scoreButton: UIButton!
     @IBOutlet weak var sceneView: SKView!
+    @IBOutlet weak var soundButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +27,8 @@ class InitialViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         updateUI()
-
+        let title = NSUserDefaults.standardUserDefaults().boolForKey(UserdefaultsKey.SoundSettings.rawValue) ? "Sound On" : "Sound Off"
+        soundButton.setTitle(title, forState: .Normal)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -47,6 +49,13 @@ class InitialViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         sceneView.presentScene(nil)
+    }
+    @IBAction func toggleSound(sender: UIButton) {
+        let bool = NSUserDefaults.standardUserDefaults().boolForKey(UserdefaultsKey.SoundSettings.rawValue)
+        let title = !bool ? "Sound On" : "Sound Off"
+        sender.setTitle(title, forState: .Normal)
+        NSUserDefaults.standardUserDefaults().setBool(!bool, forKey: UserdefaultsKey.SoundSettings.rawValue)
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     //MARK: Utilites

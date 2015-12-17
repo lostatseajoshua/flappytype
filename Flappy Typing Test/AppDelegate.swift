@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         textField.becomeFirstResponder()
         textField.resignFirstResponder()
         textField.removeFromSuperview()
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey(UserdefaultsKey.SoundSettings.rawValue) == nil {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: UserdefaultsKey.SoundSettings.rawValue)
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
         return true
     }
     

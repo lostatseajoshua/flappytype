@@ -1,8 +1,8 @@
 //
-//  GameStatsViewController.swift
+//  GameStatsTableViewController.swift
 //  Flappy Typing Test
 //
-//  Created by Joshua Alvarado on 11/26/15.
+//  Created by Joshua Alvarado on 12/12/15.
 //  Copyright © 2015 Joshua Alvarado. All rights reserved.
 //
 
@@ -10,10 +10,8 @@ import Foundation
 import UIKit
 import CoreData
 
-class GameStatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UIAlertViewDelegate {
-    
-    @IBOutlet weak var tableView: UITableView!
-    
+class GameStatsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UIAlertViewDelegate {
+
     lazy var gamesFetchResultsController : NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: "Game")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
@@ -26,14 +24,19 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
         
+        do {
+            try gamesFetchResultsController.performFetch()
+        } catch {
+            print(error)
+        }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+
     
     @IBAction func back(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -44,19 +47,6 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
         let alert = UIAlertView(title: "Reset Data", message: "Are you sure you want to reset all game data?", delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Reset")
         alert.show()
     }
-    //    @IBAction func shareScore(sender: UIBarButtonItem) {
-    //        let url = "https://itunes.apple.com/us/app/flappy-type/id874653899?mt=8"
-    //        let activityView = UIActivityViewController(activityItems: ["Look at my score on Flappy Type! \(numberOfCorrectWords)",url], applicationActivities: nil)
-    //        activityView.excludedActivityTypes = [UIActivityTypePrint, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList, UIActivityTypeAirDrop]
-    //
-    //        if UI_USER_INTERFACE_IDIOM() == .Pad {
-    //            let popup: UIPopoverController = UIPopoverController(contentViewController: activityView)
-    //            popup.presentPopoverFromBarButtonItem(sender, permittedArrowDirections: .Any, animated: true)
-    //        } else {
-    //            self.presentViewController(activityView, animated: true, completion: nil)
-    //
-    //        }
-    //    }
     
     func resetData() {
         //save game stats
@@ -98,7 +88,6 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
     
     //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        tableView.indexPathForSelectedRow
         if segue.identifier == "gameDetail", let indexPath = sender as? NSIndexPath {
             if let game = gamesFetchResultsController.fetchedObjects?[indexPath.row] as? Game {
                 if let gameStatController = segue.destinationViewController as? GameStatsDetailTableViewController {
@@ -110,7 +99,7 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
     
     //MARK: UITableViewDataSource
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "Overall Stats"
         }
@@ -120,7 +109,7 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
         return ""
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("overallStatsCell", forIndexPath: indexPath) as UITableViewCell
             if indexPath.row == 0 {
@@ -143,6 +132,7 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
                 cell.textLabel?.text = "Lifetime Letters Typed:"
                 cell.detailTextLabel?.text = "\(score)"
             }
+            return cell
         }
         
         if indexPath.section == 1 {
@@ -157,16 +147,17 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
                     cell.textLabel?.text = ""
                 }
             }
+            return cell
         }
         
         return UITableViewCell()
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 4
         }
@@ -179,28 +170,27 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     //MARK: UITableViewDelegate
-    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if indexPath.section == 0 {
             return false
         }
         return true
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 {
-//            performSegueWithIdentifier("gameDetail", sender: indexPath)
-//            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            performSegueWithIdentifier("gameDetail", sender: indexPath)
         }
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         if indexPath.section == 1 {
             return true
         }
         return false
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // remove the deleted item from the model
             if let game = gamesFetchResultsController.fetchedObjects?[indexPath.row] as? Game {
@@ -218,6 +208,9 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
     
     // MARK: NSFetchedResultsControllerDelegate
     
+    // First initialise an array of NSBlockOperations:
+    var blockOperations: [NSBlockOperation] = []
+    
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.tableView.beginUpdates()
     }
@@ -227,44 +220,63 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
         atIndexPath indexPath: NSIndexPath?,
         forChangeType type: NSFetchedResultsChangeType,
         newIndexPath: NSIndexPath?)
-    {
+    {        
         switch(type) {
             
         case .Insert:
             if let newIndexPath = newIndexPath {
-                let sectionIndexPath = NSIndexPath(forItem: newIndexPath.row, inSection: 1)
-                tableView.insertRowsAtIndexPaths([sectionIndexPath],
-                    withRowAnimation:UITableViewRowAnimation.Fade)
+                let sectionIndexPath = NSIndexPath(forRow: newIndexPath.row, inSection: 1)
+                blockOperations.append(
+                    NSBlockOperation(block: { [weak self] in
+                        if let this = self {
+                            this.tableView.insertRowsAtIndexPaths([sectionIndexPath], withRowAnimation: .Fade)
+                        }
+                    })
+                )
             }
             
         case .Delete:
             if let indexPath = indexPath {
-                let sectionIndexPath = NSIndexPath(forItem: indexPath.row, inSection: 1)
-                tableView.deleteRowsAtIndexPaths([sectionIndexPath],
-                    withRowAnimation: UITableViewRowAnimation.Fade)
+                let sectionIndexPath = NSIndexPath(forRow: indexPath.row, inSection: 1)
+                blockOperations.append(
+                    NSBlockOperation(block: { [weak self] in
+                        if let this = self {
+                            this.tableView.deleteRowsAtIndexPaths([sectionIndexPath], withRowAnimation: .Fade)
+                        }
+                    })
+                )
             }
             
         case .Update:
             if let indexPath = indexPath {
-                let sectionIndexPath = NSIndexPath(forItem: indexPath.row, inSection: 1)
-
-                if let cell = tableView.cellForRowAtIndexPath(sectionIndexPath) {
-                    if let game = gamesFetchResultsController.fetchedObjects?[sectionIndexPath.row] as? Game {
-                        cell.textLabel?.text = (game.id != nil) ? "\(game.id!)" : ""
-                    }
-                }
+                let sectionIndexPath = NSIndexPath(forRow: indexPath.row, inSection: 1)
+                
+                
+                blockOperations.append(
+                    NSBlockOperation(block: { [weak self] in
+                        if let this = self {
+                            this.tableView.reloadRowsAtIndexPaths([sectionIndexPath], withRowAnimation: .Fade)
+                        }
+                    })
+                )
             }
             
         case .Move:
             if let indexPath = indexPath {
                 if let newIndexPath = newIndexPath {
-                    let sectionIndexPath = NSIndexPath(forItem: indexPath.row, inSection: 1)
-                    let newSectionIndexPath = NSIndexPath(forItem: newIndexPath.row, inSection: 1)
-
-                    tableView.deleteRowsAtIndexPaths([sectionIndexPath],
-                        withRowAnimation: UITableViewRowAnimation.Fade)
-                    tableView.insertRowsAtIndexPaths([newSectionIndexPath],
-                        withRowAnimation: UITableViewRowAnimation.Fade)
+                    let sectionIndexPath = NSIndexPath(forRow: indexPath.row, inSection: 1)
+                    let newSectionIndexPath = NSIndexPath(forRow: newIndexPath.row, inSection: 1)
+                    
+                    blockOperations.append(
+                        NSBlockOperation(block: { [weak self] in
+                            if let this = self {
+                                this.tableView.deleteRowsAtIndexPaths([sectionIndexPath],
+                                    withRowAnimation: UITableViewRowAnimation.Fade)
+                                this.tableView.insertRowsAtIndexPaths([newSectionIndexPath],
+                                    withRowAnimation: UITableViewRowAnimation.Fade)
+                            }
+                        })
+                    )
                 }
             }
         }
@@ -278,19 +290,32 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
         switch(type) {
             
         case .Insert:
-            tableView.insertSections(NSIndexSet(index: sectionIndex),
-                withRowAnimation: UITableViewRowAnimation.Fade)
-            
+            blockOperations.append(
+                NSBlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.tableView.insertSections(NSIndexSet(index: sectionIndex),
+                            withRowAnimation: UITableViewRowAnimation.Fade)
+                    }
+                })
+            )
         case .Delete:
-            tableView.deleteSections(NSIndexSet(index: sectionIndex),
-                withRowAnimation: UITableViewRowAnimation.Fade)
-            
+            blockOperations.append(
+                NSBlockOperation(block: { [weak self] in
+                    if let this = self {
+                        this.tableView.deleteSections(NSIndexSet(index: sectionIndex),
+                            withRowAnimation: UITableViewRowAnimation.Fade)
+                    }
+                })
+            )
         default:
             break
         }
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        for operation in blockOperations {
+            operation.start()
+        }
         tableView.endUpdates()
     }
     
@@ -299,4 +324,12 @@ class GameStatsViewController: UIViewController, UITableViewDataSource, UITableV
             self.resetData()
         }
     }
+    
+    deinit {
+        for operation in blockOperations {
+            operation.cancel()
+        }
+        blockOperations.removeAll(keepCapacity: false)
+    }
+
 }

@@ -14,4 +14,20 @@ class Statistic: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 
+    convenience init(wordsTyped: NSNumber, lettersTyped: NSNumber, needSave: Bool,  context: NSManagedObjectContext?) {
+        
+        // Create the NSEntityDescription
+        let entity = NSEntityDescription.entityForName("Statistic", inManagedObjectContext: context!)
+        
+        
+        if(!needSave) {
+            self.init(entity: entity!, insertIntoManagedObjectContext: nil)
+        } else {
+            self.init(entity: entity!, insertIntoManagedObjectContext: context)
+        }
+        
+        // Init class variables
+        self.wordsTyped = wordsTyped
+        self.lettersTyped = lettersTyped
+    }
 }

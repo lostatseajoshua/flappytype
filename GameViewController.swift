@@ -21,7 +21,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scoreButton: UIButton!
     
     let textGameEngine = TextGameEngine()
-    var secondsLeft = 15
+    var secondsLeft = 5
     var gameTimer = NSTimer()
     
     override func awakeFromNib() {
@@ -114,6 +114,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     }
     
     func gameOver() {
+        self.performSegueWithIdentifier("gameScore", sender: self)
         secondsLeft = 60
         textGameEngine.gameStatus = .Ended
         pauseButton.setTitle("Home", forState: .Normal)
@@ -124,7 +125,6 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             }, completion: nil)
         self.textGameEngine.reset()
         scoreButton.hidden = false
-        self.requestInterstitialAdPresentation()
     }
     
     func timerFired() {
@@ -141,6 +141,24 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             keyboardTextField.delegate = nil
             gameTimer.invalidate()
             gameOver()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gameScore" {
+            
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
+            let array = NSArray(array: self.textGameEngine.correctWords)
+            
+            let score = Statistic(wordsTyped: self.textGameEngine.numberOfCorrectWords, lettersTyped: self.textGameEngine.numberOfCorrectLetters, needSave: false, context: appDelegate.managedObjectContext)
+            
+            let game = Game(id: NSDate(), words: array, score: score, needSave: false, context: appDelegate.managedObjectContext)
+
+            if let navVC = segue.destinationViewController as? UINavigationController, let detailGV = navVC.topViewController as? GameStatsDetailTableViewController {
+                detailGV.game = game
+                detailGV.interstitialPresentationPolicy = .Automatic
+            }
         }
     }
     

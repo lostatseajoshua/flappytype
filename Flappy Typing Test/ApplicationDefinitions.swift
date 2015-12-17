@@ -33,4 +33,5 @@ enum UserdefaultsKey: String {
     case MostTypedLetters = "Hupe8UymeqTX8"
     case LifeTimeTypedWords = "GZH9aVkY7nrnv"
     case LifeTimeTypedLetters = "yvtHs8oHhVpX6"
+    case SoundSettings = "FM9hkKdd8dT"
 }
