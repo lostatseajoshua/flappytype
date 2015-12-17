@@ -21,7 +21,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scoreButton: UIButton!
     
     let textGameEngine = TextGameEngine()
-    var secondsLeft = 5
+    var secondsLeft = 60
     var gameTimer = NSTimer()
     
     override func awakeFromNib() {
